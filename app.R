@@ -1,4 +1,5 @@
 library(plumber)
+library(quantmod)
 
 port <- Sys.getenv('PORT')
 

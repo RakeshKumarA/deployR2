@@ -1,40 +1,14 @@
 # plumber.R
 
-#* @preempt __first__
-#* @get /
-function(req, res) {
-  res$status <- 302
-  res$setHeader("Location", "./__docs__/")
-  res$body <- "Redirecting..."
-  res
-}
 
-#* Echo back the input
-#* @param msg The message to echo
-#* @get /echo
-function(msg=""){
-  list(msg = paste0("The message is: '", msg, "'"))
-}
-
-#* Plot a histogram
-#* @png
-#* @get /plot
-function(){
-  rand <- rnorm(100)
-  hist(rand)
-}
-
-#* Return the sum of two numbers
-#* @param a The first number to add
-#* @param b The second number to add
-#* @post /sum
-function(a, b){
-  as.numeric(a) + as.numeric(b)
-}
-#* Return the sum of two numbers
-#* @png
-#* @post /tcs
-function(){
-  tcs <- getSymbols(Symbols = 'TCS.NS', auto.assign = FALSE, from='2021-01-21')
-  chartSeries(x = tcs, TA = NULL)    
+#* Return chart
+#* @param add ticker in caps and add .NS for eg: TCS.NS, 
+#* @param add from date in YYYY-MM-DD format
+#* @post /chart
+function(ticker, from){
+  tcs <- tq_get(ticker,
+                get = "stock.prices",
+                from = from,
+  )
+  tcs
 }

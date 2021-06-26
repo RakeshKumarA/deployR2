@@ -10,11 +10,19 @@ function(req, res) {
 }
 
 
-#* Return chart
-#* @param add ticker in caps and add .NS for eg: TCS.NS, 
-#* @param add from date in YYYY-MM-DD format
-#* @post /chart
+#* Return stockprice
+#* @param ticker append .NS for eg: TCS.NS
+#* @param from start date in YYYY-MM-DD format
+#* @post /stockprice
 function(ticker, from){
   stockPrice <- fortify.zoo(getSymbols(Symbols = ticker, from=from, auto.assign = FALSE))
   stockPrice
+}
+
+#* Return the sum of two numbers
+#* @param a The first number to add
+#* @param b The second number to add
+#* @post /sum
+function(a, b){
+  as.numeric(a) + as.numeric(b)
 }

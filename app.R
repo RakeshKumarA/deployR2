@@ -1,6 +1,6 @@
 library(plumber)
-install.packages('tidyquant')
-library(tidyquant)
+install.packages('quantmod')
+library(quantmod)
 
 port <- Sys.getenv('PORT')
 

@@ -6,9 +6,6 @@
 #* @param add from date in YYYY-MM-DD format
 #* @post /chart
 function(ticker, from){
-  tcs <- tq_get(ticker,
-                get = "stock.prices",
-                from = from,
-  )
-  tcs
+  stockPrice <- fortify.zoo(getSymbols(Symbols = ticker, from=from, auto.assign = FALSE))
+  stockPrice
 }

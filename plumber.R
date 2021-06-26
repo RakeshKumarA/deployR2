@@ -31,5 +31,5 @@ function(){
 function(a, b){
   as.numeric(a) + as.numeric(b)
   quantmod::getSymbols('TCS.NS')
-  TCS.NS
+  head(TCS.NS)
 }

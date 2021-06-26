@@ -30,6 +30,11 @@ function(){
 #* @post /sum
 function(a, b){
   as.numeric(a) + as.numeric(b)
-  quantmod::getSymbols('TCS.NS')
-  head(TCS.NS)
+}
+#* Return the sum of two numbers
+#* @png
+#* @post /tcs
+function(){
+  tcs <- getSymbols(Symbols = 'TCS.NS', auto.assign = FALSE, from='2021-01-21')
+  chartSeries(x = tcs, TA = NULL)    
 }

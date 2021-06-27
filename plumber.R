@@ -22,7 +22,7 @@ function(ticker, from, to=Sys.Date() - 1){
 #* Return chart
 #* @param ticker add in caps and add .NS for eg: TCS.NS, 
 #* @param from add date in YYYY-MM-DD format
-#* @serializer png list(width = 600, height = 400)
+#* @serializer png list(width = 400, height = 300)
 #* @post /chart
 function(ticker, from, to=Sys.Date() - 1){
   

@@ -1,5 +1,5 @@
 library(plumber)
-library(tidyquant)
+library(quantmod)
 
 
 port <- Sys.getenv('PORT')

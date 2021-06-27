@@ -24,7 +24,7 @@ function(ticker, from, to=Sys.Date() - 1){
 #* @param from add date in YYYY-MM-DD format
 #* @post /stockPrices
 function(tickers, from, to=Sys.Date() - 1){
-  tickervector <- strsplit(string1, " ")[[1]]
+  tickervector <- strsplit(tickers, " ")[[1]]
   stockPrices <- fortify.zoo(getSymbols(Symbols = tickervector, from=from, to=to, auto.assign = FALSE))
   colnames(stockPrices)[colnames(stockPrices) == 'Index'] <- 'Date'
   stockPrices

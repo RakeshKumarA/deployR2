@@ -1,6 +1,4 @@
 library(plumber)
-library(quantmod)
-library(tidyverse)
 library(tidyquant)
 
 

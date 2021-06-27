@@ -1,6 +1,4 @@
 library(plumber)
-library(tidyquant)
-install.packages('quantmod')
 library(quantmod)
 
 

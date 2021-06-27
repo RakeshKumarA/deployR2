@@ -19,15 +19,4 @@ function(ticker, from, to=Sys.Date() - 1){
   stockPrice
 }
 
-#* Return stockPrice of list of stocks
-#* @param tickers add in caps and add .NS sep by comma 
-#* @param from add date in YYYY-MM-DD format
-#* @post /stockPrices
-function(tickers, from, to=Sys.Date() - 1){
-  tickervector <- strsplit(tickers, ",")[[1]]
-  tickervector <- trimws(tickervector, which = c("both", "left", "right"), whitespace = "[ \t\r\n]")
-  stockPrices <- tq_get(tickervector, from=from, to=to)
-  stockPrices
-}
-
 

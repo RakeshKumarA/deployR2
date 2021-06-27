@@ -35,7 +35,7 @@ function(ticker, from, to=Sys.Date() - 1){
 #* @param from add date in YYYY-MM-DD format
 #* @png
 #* @post /bb
-function(ticker, from, to=Sys.Date() - 1, bandduration, sd){
+function(ticker, from, to=Sys.Date() - 1){
   stockChart <- getSymbols(Symbols = ticker, from=from, to=to,auto.assign = FALSE)
   chartSeries(stockChart, TA=c(addVo(),
               addBBands(n=20, sd=2)), 

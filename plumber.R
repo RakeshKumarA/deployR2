@@ -33,14 +33,25 @@ function(ticker, from, to=Sys.Date() - 1){
 #* Return BBands with n=20, and sd=2
 #* @param ticker add in caps and add .NS for eg: TCS.NS, 
 #* @param from add date in YYYY-MM-DD format
-#* @param ma moving average
 #* @png
 #* @post /bb
-function(ticker, from, to=Sys.Date() - 1, ma){
+function(ticker, from, to=Sys.Date() - 1){
   stockChart <- getSymbols(Symbols = ticker, from=from, to=to,auto.assign = FALSE)
   chartSeries(stockChart, TA=c(addVo(),
               addBBands(n=20, sd=2),
               addSMA(n=20, col = 'blue')), 
+              up.col = 'green', down.col = 'red', 
+              theme=chartTheme('white'))
+}
+
+#* Return Moving average with ma=20
+#* @param ticker add in caps and add .NS for eg: TCS.NS, 
+#* @param from add date in YYYY-MM-DD format
+#* @png
+#* @post /ma20
+function(ticker, from, to=Sys.Date() - 1){
+  stockChart <- getSymbols(Symbols = ticker, from=from, to=to,auto.assign = FALSE)
+  chartSeries(stockChart, TA=c(addVo(),addSMA(n=20, col = 'blue')), 
               up.col = 'green', down.col = 'red', 
               theme=chartTheme('white'))
 }

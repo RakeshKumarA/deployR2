@@ -40,7 +40,7 @@ function(ticker, from, to=Sys.Date() - 1, ma){
   stockChart <- getSymbols(Symbols = ticker, from=from, to=to,auto.assign = FALSE)
   chartSeries(stockChart, TA=c(addVo(),
               addBBands(n=20, sd=2),
-              addSMA(n=as.numeric(ma), col = 'blue')), 
+              addSMA(n=20, col = 'blue')), 
               up.col = 'green', down.col = 'red', 
               theme=chartTheme('white'))
 }

@@ -10,11 +10,25 @@ function(req, res) {
 }
 
 
-#* Return chart
+#* Return Stock Price
 #* @param add ticker in caps and add .NS for eg: TCS.NS, 
 #* @param add from date in YYYY-MM-DD format
-#* @post /chart
-function(ticker, from){
-  stockPrice <- fortify.zoo(getSymbols(Symbols = ticker, from=from, auto.assign = FALSE))
+#* @post /stockPrice
+function(ticker, from, to=Sys.Date() - 1){
+  stockPrice <- fortify.zoo(getSymbols(Symbols = ticker, from=from, to=to, auto.assign = FALSE))
+  colnames(stockPrice)[colnames(stockPrice) == 'Index'] <- 'Date'
   stockPrice
 }
+
+#* Return stockPrice of list of stocks
+#* @param add ticker in caps and add .NS sep by comma 
+#* @param add from date in YYYY-MM-DD format
+#* @post /stockPrices
+function(tickers, from, to=Sys.Date() - 1){
+  tickervector <- strsplit(string1, " ")[[1]]
+  stockPrices <- fortify.zoo(getSymbols(Symbols = tickervector, from=from, to=to, auto.assign = FALSE))
+  colnames(stockPrices)[colnames(stockPrices) == 'Index'] <- 'Date'
+  stockPrices
+}
+
+

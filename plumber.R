@@ -10,8 +10,8 @@ function(req, res) {
 }
 
 #* Return Stock Price
-#* @param add ticker in caps and add .NS for eg: TCS.NS, 
-#* @param add from date in YYYY-MM-DD format
+#* @param ticker add in caps and add .NS for eg: TCS.NS, 
+#* @param from add date in YYYY-MM-DD format
 #* @post /stockPrice
 function(ticker, from, to=Sys.Date() - 1){
   stockPrice <- fortify.zoo(getSymbols(Symbols = ticker, from=from, to=to, auto.assign = FALSE))
@@ -20,8 +20,8 @@ function(ticker, from, to=Sys.Date() - 1){
 }
 
 #* Return stockPrice of list of stocks
-#* @param add ticker in caps and add .NS sep by comma 
-#* @param add from date in YYYY-MM-DD format
+#* @param tickers add in caps and add .NS sep by comma 
+#* @param from add date in YYYY-MM-DD format
 #* @post /stockPrices
 function(tickers, from, to=Sys.Date() - 1){
   tickervector <- strsplit(string1, " ")[[1]]

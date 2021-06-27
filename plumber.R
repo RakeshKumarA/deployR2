@@ -9,7 +9,6 @@ function(req, res) {
   res
 }
 
-
 #* Return Stock Price
 #* @param add ticker in caps and add .NS for eg: TCS.NS, 
 #* @param add from date in YYYY-MM-DD format

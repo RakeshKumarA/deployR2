@@ -38,10 +38,10 @@ function(ticker, from, to=Sys.Date() - 1){
 #* @png
 #* @post /bb
 function(ticker, from, to=Sys.Date() - 1, bandduration, sd){
-  bandduration <- as.numeric(bandduration)
-  sd <- as.numeric(sd)
+  banddurationfinal <- as.numeric(bandduration)
+  sdfinal <- as.numeric(sd)
   stockChart <- getSymbols(Symbols = ticker, from=from, to=to,auto.assign = FALSE)
-  chartSeries(stockChart, TA=c(addVo(),addBBands(n=bandduration, sd=sd)), 
+  chartSeries(stockChart, TA=c(addVo(),addBBands(n=banddurationfinal, sd=sdfinal)), 
               up.col = 'green', down.col = 'red', 
               theme=chartTheme('white'))
 }

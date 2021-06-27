@@ -1,1 +1,1 @@
-install.packages('openssl')
+apt update && apt install libssl-dev

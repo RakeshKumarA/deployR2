@@ -1,1 +1,1 @@
-install.packages('tidyquant')
+install.packages('openssl', 'httr', 'Quandl', 'riingo', 'plotly', 'timetk')

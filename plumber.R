@@ -14,8 +14,8 @@ function(req, res) {
 #* @param ticker append .NS for eg: TCS.NS
 #* @param from start date in YYYY-MM-DD format
 #* @post /stockprice
-function(ticker, from){
-  stockPrice <- fortify.zoo(getSymbols(Symbols = ticker, from=from, auto.assign = FALSE))
+function(ticker, from, to=Sys.Date() - 1){
+  stockPrice <- fortify.zoo(getSymbols(Symbols = ticker, from=from, to=to, auto.assign = FALSE))
   stockPrice
 }
 

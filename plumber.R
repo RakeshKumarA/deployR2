@@ -20,14 +20,27 @@ function(ticker, from, to=Sys.Date() - 1){
 }
 
 #* Return chart
-#* #* @param ticker add in caps and add .NS for eg: TCS.NS, 
+#* @param ticker add in caps and add .NS for eg: TCS.NS, 
 #* @param from add date in YYYY-MM-DD format
 #* @png
 #* @post /chart
 function(ticker, from, to=Sys.Date() - 1){
   
-  chartSeries(getSymbols(Symbols = ticker, from=from, to=to, auto.assign = FALSE), 
+  chartSeries(getSymbols(Symbols = ticker, from=from, to=to, up.col = 'green',
+                         down.col = 'red', auto.assign = FALSE), 
               theme=chartTheme('white'))
 }
 
+#* Return chart
+#* @param ticker add in caps and add .NS for eg: TCS.NS, 
+#* @param from add date in YYYY-MM-DD format
+#* @png
+#* @post /bb
+function(ticker, from, to=Sys.Date() - 1){
+  chartSeries(getSymbols(Symbols = ticker, from=from, to=to, up.col = 'green',
+                         down.col = 'red', auto.assign = FALSE), 
+              theme=chartTheme('white'))
+  
+  addBBands(n=20,sd=2)
+}
 

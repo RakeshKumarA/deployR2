@@ -1,1 +1,1 @@
-install.packages('openssl', 'httr', 'Quandl', 'riingo', 'plotly', 'timetk')
+install.packages('httr')

@@ -36,9 +36,9 @@ function(ticker, from, to=Sys.Date() - 1){
 #* @png
 #* @post /bb
 function(ticker, from, to=Sys.Date() - 1){
-  chartSeries(getSymbols(Symbols = ticker, from=from, to=to, up.col = 'green',
-                         down.col = 'red', auto.assign = FALSE), 
-              theme=chartTheme('white'))
+  stockChart <- getSymbols(Symbols = ticker, from=from, to=to,auto.assign = FALSE)
+  stop(chartSeries(stockChart, up.col = 'green', 
+                   down.col = 'red', theme=chartTheme('white')))
   
   addBBands(n=20,sd=2)
 }

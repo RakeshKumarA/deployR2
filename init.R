@@ -1,1 +1,1 @@
-helpers.installPackages("quantmod")
+helpers.installPackages("quantmod", "tidyverse", "tidyquant")

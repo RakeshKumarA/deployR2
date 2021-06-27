@@ -26,9 +26,8 @@ function(ticker, from, to=Sys.Date() - 1){
 #* @post /chart
 function(ticker, from, to=Sys.Date() - 1){
   
-  chartSeries(getSymbols(Symbols = ticker, from=from, to=to, up.col = 'green',
-                         down.col = 'red', auto.assign = FALSE), 
-              theme=chartTheme('white'))
+  chartSeries(getSymbols(Symbols = ticker, from=from, to=to, auto.assign = FALSE), up.col = 'green',
+                         down.col = 'red', theme=chartTheme('white'))
 }
 
 #* Return chart

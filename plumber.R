@@ -30,16 +30,15 @@ function(ticker, from, to=Sys.Date() - 1){
                          down.col = 'red', theme=chartTheme('white'))
 }
 
-#* Return chart
+#* Return BBands with n=20, and sd=2
 #* @param ticker add in caps and add .NS for eg: TCS.NS, 
 #* @param from add date in YYYY-MM-DD format
-#* @param bandduration number of days
-#* @param sd standard deviation
 #* @png
 #* @post /bb
 function(ticker, from, to=Sys.Date() - 1, bandduration, sd){
-  chartSeries(x = getSymbols(Symbols = ticker, from=from, to=to), TA=c(addVo(),
-              addBBands(n=as.numeric(bandduration), sd=as.numeric(sd))), 
+  stockChart <- getSymbols(Symbols = ticker, from=from, to=to,auto.assign = FALSE)
+  chartSeries(stockChart, TA=c(addVo(),
+              addBBands(n=20, sd=2)), 
               up.col = 'green', down.col = 'red', 
               theme=chartTheme('white'))
 }

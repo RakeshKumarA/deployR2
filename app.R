@@ -1,3 +1,4 @@
+renv::restore()
 library(plumber)
 library(tidyquant)
 
